@@ -11,17 +11,16 @@ function getValues() {
   loanTerms = parseInt(loanTerms);
   loanInterest = parseInt(loanInterest);
 
-  
   // maximum value validation
   if (loanAmount > 100000000 || loanTerms > 900 || loanInterest > 1000) {
-    return  Swal.fire({
+    return Swal.fire({
       icon: "error",
       title: "Oops...",
       text: "Please enter a lower interger",
     });
-  } 
+  }
   // interger validation for values
-    else if (
+  else if (
     Number.isInteger(loanAmount) &&
     Number.isInteger(loanTerms) &&
     Number.isInteger(loanInterest)
@@ -44,36 +43,76 @@ function getValues() {
 function generateLoanObj(loanAmount, loanTerms, loanInterest) {
   let loanObj = {
     amount: loanAmount,
-    interest: loanInterest,
     terms: loanTerms,
+    interest: loanInterest,
   };
   return loanObj;
 }
 
+// displays loan total
 function displayLoanTotal(loanObj) {
   // displays total principal
-  let totatPrincipal = loanObj.amount;
+  let totalPrincipal = totalAmount(loanObj);
   document.getElementById("principal").innerHTML =
-    totatPrincipal.toLocaleString();
+    totalPrincipal.toLocaleString();
+
+  let totalMonthlyPay = totalMonthly(loanObj);
+  document.getElementById("monthlyPayment").innerHTML =
+    totalMonthlyPay.toLocaleString();
+
+  let totalInterestPay = totalInterest(loanObj);
+  document.getElementById("interest").innerHTML =
+    totalInterestPay.toLocaleString();
+
+  let totalCostPay = totalCost(loanObj);
+  document.getElementById("cost").innerHTML = totalCostPay.toLocaleString();
+}
+
+function totalAmount(loanObj) {
+  let totalPrincipal = loanObj.amount;
+  return totalPrincipal;
+}
+
+function totalMonthly(loanObj) {
+  let totalPrincipal = loanObj.amount;
 
   // calculates monthly interest rate
-  let calculatedPay = loanObj.terms;
-  let calculatedInterest = loanObj.interest / 100 / 12;
+  let monthsToPay = loanObj.terms;
+  let interestPerMonth = loanObj.interest / 100 / 12;
 
   // calculates monthly payments
-  let x = Math.pow(1 + calculatedInterest, calculatedPay);
-  let monthly = (totatPrincipal * x * calculatedInterest) / (x - 1);
+  let x = Math.pow(1 + interestPerMonth, monthsToPay);
+  let monthly = (totalPrincipal * x * interestPerMonth) / (x - 1);
 
   // displays monthly payments
   let monthlyPay = monthly.toFixed(2);
-  document.getElementById("monthlyPayment").innerHTML = "$" + monthlyPay;
 
-  // displays total interest
-  let totalInterest = (monthly * calculatedPay - totatPrincipal).toFixed(2);
-  document.getElementById("interest").innerHTML =
-    "$" + totalInterest.toLocaleString();
+  return monthlyPay;
+}
 
-  // displays total cost
-  let totalCost = monthly * calculatedPay;
-  document.getElementById("cost").innerHTML = "$" + totalCost.toLocaleString();
+function totalInterest(loanObj) {
+  let totalInterest = totalMonthly(loanObj) * loanObj.terms - loanObj.amount;
+
+  return totalInterest.toFixed(2);
+}
+
+function totalCost(loanObj) {
+  let totalCost = totalMonthly(loanObj) * loanObj.terms;
+  return totalCost.toFixed(2);
+}
+
+// displays loan grid to page
+function displayLoanGrid(loanObj) {
+  // get the template
+  const template = document.getElementById("loanData-template");
+
+  // get the location where the template will be written
+  const loanBody = document.getElementById("loanBody");
+  loanBody.innerHTML = "";
+
+  for (let i = 0; i = loanObj.terms; i++) {
+    const loanRow = document.importNode(template.content, true);
+
+    const loanCols = loanRow.querySelector("td");
+  }
 }

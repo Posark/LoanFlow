@@ -99,7 +99,7 @@
               <input id="loanInterest" class="form-control loan-variable" type="number" min="1" max="1000" placeholder="Enter Rate" required />
             </div>
             <div>
-              <button id="btnSubmit" class="btn btn-primary mt-3" type="button" onclick="getValues">
+              <button id="btnSubmit" class="btn btn-primary mt-3" type="button" onclick="getValues()">
                 Calculate Loan
               </button>
             </div>
@@ -139,7 +139,7 @@
                   <th>Date</th>
                 </tr>
               </thead>
-              <tbody id="eventBody">
+              <tbody id="loanBody">
                 <!-- template data goes here -->
               </tbody>
             </table>
@@ -168,6 +168,16 @@
         </div>
       </div>
     </footer>
+
+    <template id="loanData-template">
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </template>
 
     <!-- JavaScript Bundle with Popper -->
     <script
