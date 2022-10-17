@@ -86,8 +86,12 @@ footer {
     max-width: 75%;
 }
 
-.background-primary {
+.background-primary-solid {
     background-color: var(--cs-primary-color);
+}
+
+.background-gradient {
+    background: linear-gradient(rgb(2, 66, 52), rgb(143, 227, 207));
 }
 
 .container-padding {
