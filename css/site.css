@@ -1,11 +1,11 @@
 :root {
-    --cs-primary-color: rgb(43, 72, 101);
+    --cs-primary-color: #141d34;
     --cs-secondary-color: #256D85;
     --cs-dark-color: #002B5B;
     --cs-light-color: #8FE3CF;
     
-    --cs-navbar-toggler-glow: rgba(43, 72, 101,0.7);
-    --cs-navbar-toggler-color: rgba(43, 72, 101,0.9);
+    --cs-navbar-toggler-glow: #8FE3CF;
+    --cs-navbar-toggler-color: #256D85;
 }
 
 html, body {
@@ -22,6 +22,10 @@ body {
     margin-top: 4.75rem;
 }
 
+ul {
+    list-style: none;
+}
+
 footer {
     flex-shrink: 0;
 }
@@ -29,6 +33,11 @@ footer {
 .footer {
     background-color: var(--cs-dark-color);
     color: var(--cs-light-color);
+}
+
+.display-number {
+    font-weight: 700;
+    font-size: 2rem;
 }
 
 .socialIcons {
@@ -73,4 +82,18 @@ footer {
 
 .appLogo {
     max-width: 100%;
+}
+
+.background-primary {
+    background-color: var(--cs-primary-color);
+}
+
+.container-padding {
+    padding: 2.5% 5% 2.5%;
+}
+
+@media(min-width: 992px) {
+    .container-padding {
+        padding: 5% 30% 5%;
+    }
 }

@@ -81,49 +81,49 @@
       </nav>
     </header>
 
-    <main class="content container">
-      <h1>Loan Flow</h1>
-      <div class="row mt-5">
-        <div class="col-lg-6 order-last order-lg-first">
-          <form class="row">
-            <div class="col-12 cmt-3">
-              <label class="form-label">Loan Amount</label>
+    <main class="content container-padding">
+      <div class="row">
+        <div class="col-12">
+          <form class="row rounded-top background-primary px-2 py-4">
+            <h1 class="text-light">Loan Flow</h1>
+            <div class="col-md-4">
+              <label class="form-label text-light">Loan Amount</label>
               <input id="loanAmount" class="form-control loan-variable" type="number" min="1" max="100000000" placeholder="Enter Amount" required />
             </div>
-            <div class="col-12 cmt-3">
-              <label class="form-lable">Loan Terms</label>
+            <div class="col-md-4">
+              <label class="form-label text-light">Loan Terms</label>
               <input id="loanTerms" class="form-control loan-variable" type="number" min="1" max="900" placeholder="Enter Terms" required />
             </div>
-            <div class="col-12 cmt-3">
-              <label class="form-label">Interest Rate</label>
+            <div class="col-md-4">
+              <label class="form-label text-light">Interest Rate</label>
               <input id="loanInterest" class="form-control loan-variable" type="number" min="1" max="1000" placeholder="Enter Rate" required />
             </div>
-            <div>
-              <button id="btnSubmit" class="btn btn-primary mt-3" type="button" onclick="getValues()">
+            <div class="col-12">
+              <button id="btnSubmit" class="btn btn-danger mt-3" type="button" onclick="getValues()">
                 Calculate Loan
               </button>
             </div>
           </form>
         </div>
-        <div class="col-lg-6 order-first order-lg-last">
+        <div class="col-12 pt-4 bg-secondary text-light">
           <h2 class="text-center">Your Monthly Payments</h2>
-          <table class="table mt-3">
-            <tr>
-              <th colspan="2" class="text-center display-6" id="monthlyPayment">0</th>
-            </tr>
-            <tr>
-              <td>Total Principal</td>
-              <td id="principal" class="text-end">0</td>
-            </tr>
-            <tr>
-              <td>Total Interest</td>
-              <td id="interest" class="text-end">0</td>
-            </tr>
-            <tr>
-              <td>Total Cost</td>
-              <td id="cost" class="text-end">0</td>
-            </tr>
-          </table>
+          <ul class="row mt-3 justify-content-around">
+            <li class="col-12">
+              <h2 class="display-number" id="monthlyPayment">0</h2>
+            </li>
+            <li class="col-md-4">
+              <p>Total Principal</p>
+              <p id="principal" class="display-number">0</p>
+            </li>
+            <li class="col-md-4">
+              <p>Total Interest</p>
+              <p id="interest" class="display-number">0</p>
+            </li>
+            <li class="col-md-4">
+              <p>Total Cost</p>
+              <p id="cost" class="display-number">0</p>
+            </li>
+          </ul>
         </div>
       </div>
       <div class="row">

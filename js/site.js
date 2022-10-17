@@ -138,9 +138,3 @@ function displayLoanGrid(loanObj) {
     loanBody.appendChild(loanRow);
   }
 }
-
-// function interestPerMonth(loanObj) {
-//   for (let i = 0; i <= loanObj.terms; i++) {
-
-//   }
-// }
