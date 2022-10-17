@@ -25,6 +25,11 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
 
+      <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,400;1,700&display=swap" rel="stylesheet">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/prism.css" />
     <link rel="stylesheet" href="/css/site.css" />
@@ -36,7 +41,7 @@
         <div class="container">
           <a class="navbar-brand" href="#"
             ><img
-              src="/img/cs_logo_transparent_light_1200.png"
+              src="/img/loan_flow_logo_transparent.png"
               alt="CS Logo"
               height="50" />
             Loan Flow</a
@@ -99,7 +104,7 @@
               <input id="loanInterest" class="form-control loan-variable" type="number" min="1" max="1000" placeholder="Enter Rate" required />
             </div>
             <div class="col-12">
-              <button id="btnSubmit" class="btn btn-danger mt-3" type="button" onclick="getValues()">
+              <button id="btnSubmit" class="btn btn-dark mt-3" type="button" onclick="getValues()">
                 Calculate Loan
               </button>
             </div>
@@ -107,8 +112,8 @@
         </div>
         <div class="col-12 pt-4 bg-secondary text-light">
           <h2 class="text-center">Your Monthly Payments</h2>
-          <ul class="row mt-3 justify-content-around">
-            <li class="col-12">
+          <ul class="row mt-3">
+            <li class="col-12 text-center">
               <h2 class="display-number" id="monthlyPayment">0</h2>
             </li>
             <li class="col-md-4">
@@ -157,7 +162,7 @@
           </div>
           <div class="col text-center">
             <img
-              src="/img/cs_logo_transparent_light_1200.png"
+              src="/img/loan_flow_logo_transparent.png"
               alt="CS Logo"
               height="50" />
           </div>

@@ -1,8 +1,10 @@
 :root {
-    --cs-primary-color: #141d34;
-    --cs-secondary-color: #256D85;
+    --cs-primary-color: #078f71;
+    --cs-secondary-color: rgb(157, 174, 156);
     --cs-dark-color: #002B5B;
     --cs-light-color: #8FE3CF;
+
+    --cs-main-font: "Open Sans";
     
     --cs-navbar-toggler-glow: #8FE3CF;
     --cs-navbar-toggler-color: #256D85;
@@ -31,7 +33,7 @@ footer {
 }
 
 .footer {
-    background-color: var(--cs-dark-color);
+    background-color: var(--cs-secondary-color);
     color: var(--cs-light-color);
 }
 
@@ -51,7 +53,7 @@ footer {
 
 /* Navbar override starts */
 #mainNav {
-    background-color: var(--cs-primary-color);
+    background-color: var(--cs-secondary-color);
 }
 
 #mainNav button {
@@ -81,7 +83,7 @@ footer {
 }
 
 .appLogo {
-    max-width: 100%;
+    max-width: 75%;
 }
 
 .background-primary {
@@ -90,6 +92,20 @@ footer {
 
 .container-padding {
     padding: 2.5% 5% 2.5%;
+}
+
+.main-font {
+    font-family: var(--cs-main-font);
+}
+
+.main-font-italic {
+    font-family: var(--cs-main-font);
+    font-style: italic;
+}
+
+.main-font-bold {
+    font-family: var(--cs-main-font);
+    font-weight: 700;
 }
 
 @media(min-width: 992px) {
