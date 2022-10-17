@@ -56,18 +56,18 @@ function displayLoanTotal(loanObj) {
   // displays total principal
   let totalPrincipal = totalAmount(loanObj);
   document.getElementById("principal").innerHTML =
-    totalPrincipal.toLocaleString();
+    `$${totalPrincipal.toLocaleString()}`;
 
   let totalMonthlyPay = totalMonthly(loanObj).toFixed(2);
   document.getElementById("monthlyPayment").innerHTML =
-    totalMonthlyPay.toLocaleString();
+    `$${totalMonthlyPay.toLocaleString()}`;
 
   let totalInterestPay = totalInterest(loanObj).toFixed(2);
   document.getElementById("interest").innerHTML =
-    totalInterestPay.toLocaleString();
+    `$${totalInterestPay.toLocaleString()}`;
 
   let totalCostPay = totalCost(loanObj).toFixed(2);
-  document.getElementById("cost").innerHTML = totalCostPay.toLocaleString();
+  document.getElementById("cost").innerHTML = `$${totalCostPay.toLocaleString()}`;
 }
 
 // sets the asking loan
@@ -121,25 +121,28 @@ function displayLoanGrid(loanObj) {
   // get the location where the template will be written
   const loanBody = document.getElementById("loanBody");
   loanBody.innerHTML = "";
+  let rate = loanObj.interest / 1200;
+  let remainingBalance = loanObj.amount;
+  let interestPayPerMonth = 0;
+  let totalMonthlyInterest = 0;
 
   for (let monthsInc = 1; monthsInc <= loanObj.terms; monthsInc++) {
     const loanRow = document.importNode(template.content, true);
 
     const loanCols = loanRow.querySelectorAll("td");
 
-    let totalMonthlyInterest = (((totalAmount(loanObj).toFixed(2) * loanObj.interest) / 1200) * monthsInc).toFixed(2);
-    let interestPayPerMonth = ((totalAmount(loanObj) * loanObj.interest) / 1200) - ((totalAmount(loanObj) * loanObj.interest) / 1200) * monthlyInterest(loanObj) - monthsInc;
-    let monthlyPrincipal = totalMonthly(loanObj) - interestPayPerMonth;
-    let remainingBalance = totalAmount(loanObj) - totalMonthly(loanObj) * monthsInc;
+    interestPayPerMonth = remainingBalance * rate;
+    totalMonthlyInterest += interestPayPerMonth;
 
-    // let monthlyPrincipal = ((totalMonthly(loanObj) * monthlyInterest(loanObj)) - totalMonthlyInterest);
+    let monthlyPrincipal = totalMonthly(loanObj) - interestPayPerMonth;
+    remainingBalance = Math.abs(remainingBalance - monthlyPrincipal);
 
     loanCols[0].textContent = monthsInc;
-    loanCols[1].textContent = totalMonthly(loanObj).toFixed(2);
-    loanCols[2].textContent = monthlyPrincipal.toFixed(2);
-    loanCols[3].textContent = interestPayPerMonth.toFixed(2);
-    loanCols[4].textContent = totalMonthlyInterest;
-    loanCols[5].textContent = remainingBalance.toFixed(2);
+    loanCols[1].textContent = `$${totalMonthly(loanObj).toFixed(2)}`;
+    loanCols[2].textContent = `$${monthlyPrincipal.toFixed(2)}`;
+    loanCols[3].textContent = `$${interestPayPerMonth.toFixed(2)}`;
+    loanCols[4].textContent = `$${totalMonthlyInterest.toFixed(2)}`;
+    loanCols[5].textContent = `$${remainingBalance.toFixed(2)}`;
 
     loanBody.appendChild(loanRow);
   }
