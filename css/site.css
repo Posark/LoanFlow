@@ -1,10 +1,10 @@
 :root {
     --cs-primary-color: #078f71;
-    --cs-secondary-color: rgb(157, 174, 156);
-    --cs-dark-color: #002B5B;
+    --cs-secondary-color: #DB8721;
+    --cs-dark-color: #024234;
     --cs-light-color: #8FE3CF;
 
-    --cs-main-font: "Open Sans";
+    --cs-main-font: "Open Sans", sans-serif;
     
     --cs-navbar-toggler-glow: #8FE3CF;
     --cs-navbar-toggler-color: #256D85;
@@ -33,7 +33,7 @@ footer {
 }
 
 .footer {
-    background-color: var(--cs-secondary-color);
+    background-color: var(--cs-dark-color);
     color: var(--cs-light-color);
 }
 
@@ -53,7 +53,7 @@ footer {
 
 /* Navbar override starts */
 #mainNav {
-    background-color: var(--cs-secondary-color);
+    background-color: var(--cs-primary-color);
 }
 
 #mainNav button {
@@ -106,6 +106,12 @@ footer {
 .main-font-bold {
     font-family: var(--cs-main-font);
     font-weight: 700;
+}
+
+.main-font-bold-italic {
+    font-family: var(--cs-main-font);
+    font-weight: 700;
+    font-style: italic;
 }
 
 @media(min-width: 992px) {

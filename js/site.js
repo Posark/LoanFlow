@@ -41,6 +41,7 @@ function getValues() {
   }
 }
 
+// creates the loan object
 function generateLoanObj(loanAmount, loanTerms, loanInterest) {
   let loanObj = {
     amount: loanAmount,
@@ -69,11 +70,13 @@ function displayLoanTotal(loanObj) {
   document.getElementById("cost").innerHTML = totalCostPay.toLocaleString();
 }
 
+// sets the asking loan
 function totalAmount(loanObj) {
   let totalPrincipal = loanObj.amount;
   return totalPrincipal;
 }
 
+// calculates total monthly payments
 function totalMonthly(loanObj) {
   let totalPrincipal = loanObj.amount;
 
@@ -91,17 +94,20 @@ function totalMonthly(loanObj) {
   return monthly;
 }
 
+// calculates total interest
 function totalInterest(loanObj) {
   let totalInterest = totalMonthly(loanObj) * loanObj.terms - loanObj.amount;
 
   return totalInterest;
 }
 
+// calculates total cost
 function totalCost(loanObj) {
   let totalCost = totalMonthly(loanObj) * loanObj.terms;
   return totalCost;
 }
 
+// calculates monthly interest
 function monthlyInterest(loanObj) {
   let interestPerMonth = loanObj.interest / 100 / 12;
   return interestPerMonth;
