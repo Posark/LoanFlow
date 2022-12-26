@@ -1,7 +1,7 @@
 :root {
-    --cs-primary-color: #078f71;
-    --cs-secondary-color: #DB8721;
-    --cs-dark-color: #024234;
+    --cs-primary-color: rgb(39, 79, 105);
+    --cs-secondary-color: #4c9ad4;
+    --cs-dark-color: #004463;
     --cs-light-color: #8FE3CF;
 
     --cs-main-font: "Open Sans", sans-serif;
@@ -54,7 +54,9 @@ footer {
 /* Navbar override starts */
 #mainNav {
     background-color: var(--cs-primary-color);
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 25px 20px -20px;
 }
+
 
 #mainNav button {
     border-color: var(--cs-secondary-color);
@@ -90,12 +92,12 @@ footer {
     background-color: var(--cs-primary-color);
 }
 
-.background-gradient {
-    background: linear-gradient(rgb(2, 66, 52), rgb(143, 227, 207));
-}
-
 .container-padding {
     padding: 2.5% 5% 2.5%;
+}
+
+.border-shadow {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .main-font {
